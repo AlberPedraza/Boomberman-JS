@@ -16,6 +16,7 @@ $(document).ready(function(){
   console.log(myMaps.mapItems);
 
   myBombs.setBomb(1,1);
+  
 $(".square").innerHTML="hola";
 
 $(document).keypress();
