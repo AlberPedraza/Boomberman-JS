@@ -1,0 +1,13 @@
+#map {
+  width: 700px;
+  height: 700px;
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.square {
+  background-color: #e1ffc4;
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+}
