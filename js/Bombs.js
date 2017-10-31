@@ -30,11 +30,9 @@ Bombs.prototype.clearBomb = function(x,y,range,content){
 Bombs.prototype.setBomb = function(x,y){
   this.Bomb_x = x;
   this.Bomb_y = y;
-
   //marca con cero la posicion de la bomba
   myMaps.mapItems[x][y] = 0;
   console.log(this);
-
   //guardamos el objeto para acceder
   var that=this;
   setTimeout(function(){
@@ -44,6 +42,6 @@ Bombs.prototype.setBomb = function(x,y){
         that.clearBomb(x,y,1,"-");
           console.log("log setBoom --clear: " + myMaps.mapItems);
       },200);
-  }, 3000);
+  }, 2000);
 
 };

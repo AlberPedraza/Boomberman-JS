@@ -9,25 +9,26 @@ var myPlayers;
 $(document).ready(function(){
   myMaps = new Maps();
   myBombs = new Bombs();
-  myPlayers = new Players(4,4);
+  myPlayers = new Players(7,0);
 
 
-  var p_pos_x = myPlayers.x;
-  var p_pos_y = myPlayers.y;
   var p_con = "w";
   var p_con_cle = "-";
 
 
-  console.log(myMaps.mapItems);
+
   myBombs.setBomb(1,1);
-  myPlayers.addMap(p_pos_x,p_pos_y,p_con);
+  //añade posicion al mapa
+  myPlayers.addMap(myPlayers.x,myPlayers.y,p_con);
 
   controlKey = function(key){
-    console.log(myPlayers.x);
   switch (key) {
     case 38:
       console.log("arriba");
+      console.log(" antes de la funcion",myPlayers.x);
       myPlayers.moveUp(myPlayers.x,myPlayers.y,p_con);
+      console.log("despues de la funcion",myPlayers.x);
+      console.log(myMaps.mapItems);
     break;
     case 40:
       console.log("abajo");
@@ -47,9 +48,10 @@ $(document).ready(function(){
     default:
       console.log("tecla sin movimiento");
   }
-
+    //cada vez que hay movimiento actualiza posición a la array de Maps
+    myPlayers.addMap(myPlayers.x,myPlayers.y,p_con);
   };
-
+  console.log(myMaps.mapItems);
 $(".square").innerHTML="hola";
 });
 
