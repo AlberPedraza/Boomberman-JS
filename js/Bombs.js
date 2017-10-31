@@ -41,7 +41,7 @@ Bombs.prototype.setBomb = function(x,y){
     that.damageBoom(x,y,1,"o");
               console.log("log setBoom --damage: " + myMaps.mapItems);
       setTimeout(function(){
-        that.clearBomb(x,y,1,"");
+        that.clearBomb(x,y,1,"-");
           console.log("log setBoom --clear: " + myMaps.mapItems);
       },200);
   }, 3000);
