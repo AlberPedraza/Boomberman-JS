@@ -13,46 +13,55 @@ $(document).ready(function(){
 
 
   var p_con = "w";
-  var p_con_cle = "-";
+  var p_con_cls = "-";
 
 
-
+  //añade bomba al mapa
   myBombs.setBomb(1,1);
-  //añade posicion al mapa
-  myPlayers.addMap(myPlayers.x,myPlayers.y,p_con);
+  //añade posicion del jugador al mapa
+  myPlayers.addPlayerMap(myPlayers.x,myPlayers.y,p_con);
 
   controlKey = function(key){
+    var backPos_x = myPlayers.x;
+    var backPos_y = myPlayers.y;
+
   switch (key) {
     case 38:
       console.log("arriba");
       console.log(" antes de la funcion",myPlayers.x);
       myPlayers.moveUp(myPlayers.x,myPlayers.y,p_con);
+      myPlayers.clearPlayerPos(backPos_x,backPos_y,p_con_cls);
       console.log("despues de la funcion",myPlayers.x);
       console.log(myMaps.mapItems);
     break;
     case 40:
       console.log("abajo");
       myPlayers.moveDown(myPlayers.x,myPlayers.y,p_con);
-          console.log(myMaps.mapItems);
+      myPlayers.clearPlayerPos(backPos_x,backPos_y,p_con_cls);
+      console.log("despues de la funcion",myPlayers.x);
+      console.log(myMaps.mapItems);
     break;
     case 37:
       console.log("izquierda");
       myPlayers.moveLeft(myPlayers.x,myPlayers.y,p_con);
+      myPlayers.clearPlayerPos(backPos_x,backPos_y,p_con_cls);
+      console.log("despues de la funcion",myPlayers.x);
       console.log(myMaps.mapItems);
     break;
     case 39:
       console.log("derecha");
       myPlayers.moveRight(myPlayers.x,myPlayers.y,p_con);
-          console.log(myMaps.mapItems);
+      myPlayers.clearPlayerPos(backPos_x,backPos_y,p_con_cls);
+      console.log("despues de la funcion",myPlayers.x);
+      console.log(myMaps.mapItems);
     break;
     default:
       console.log("tecla sin movimiento");
   }
     //cada vez que hay movimiento actualiza posición a la array de Maps
-    myPlayers.addMap(myPlayers.x,myPlayers.y,p_con);
+    myPlayers.addPlayerMap(myPlayers.x,myPlayers.y,p_con);
   };
   console.log(myMaps.mapItems);
-$(".square").innerHTML="hola";
 });
 
 ///////Canvas

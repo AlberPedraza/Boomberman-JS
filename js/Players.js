@@ -5,10 +5,10 @@ function Players(x,y){
   //this.direction_x;
   //this.direction_y;
 };
-Players.prototype.addMap = function(x,y, content){
+Players.prototype.addPlayerMap = function(x,y, content){
     myMaps.mapItems[x][y] = content;
 };
-Players.prototype.backPosition = function(x,y, content){
+Players.prototype.clearPlayerPos = function(x,y, content){
   myMaps.mapItems[x][y] = content;
 };
 //funciones de movimimento
