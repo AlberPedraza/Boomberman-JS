@@ -9,15 +9,15 @@ function Boards(x,y){
     ["x", "-", "x", "-", "x", "-", "x", "-"],
     ["-", "-", "-", "-", "-", "-", "-", "-"],
     ["-", "x", "-", "x", "-", "x", "-", "x"],
-    ["x", "-", "x", "-", "x", "-", "x", "-"],
+    ["-", "-", "-", "-", "-", "-", "-", "-"],
   ];
 
 };
 Boards.prototype.start = function (ctx){
-  this.canvas.width = 800;
-  this.canvas.height = 800;
-        for (var i = 0; i < 8; i++) {
-          for (var j = 0; j < 8; j++) {
+  this.canvas.width = 630;
+  this.canvas.height = 630;
+        for (var i = 0; i < 7; i++) {
+          for (var j = 0; j < 7; j++) {
             ctx.fillStyle = 'rgb(' + Math.floor(255 - 39 * i) + ', ' +
               Math.floor(255 - 39 * j) + ', 100)';
             //ctx.fillStyle = 'rgb(173,255,47)';
