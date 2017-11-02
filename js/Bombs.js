@@ -33,6 +33,7 @@ Bombs.prototype.clearBomb = function(x,y,range,content){
   setTimeout(function(){that.damageBoom(x,y,range,content);}, 200);
 };
 
+
 //pone bomba en posición y activa la explosión con setInterval de damageBoom
 Bombs.prototype.setBombs = function(x,y){
   console.log("bomba x/y: " + x,y);
@@ -48,8 +49,8 @@ Bombs.prototype.setBombs = function(x,y){
         console.log("log setBoom --damage: " + myBoards.mapItems);
       setTimeout(function(){
         that.clearBomb(x,y,1,"-");
+        myBombs.pop();
           console.log("log setBoom --clear: " + myBoards.mapItems);
-          newGame.update();
       },200);
   }, 2000);
 
@@ -74,7 +75,7 @@ var i,j;
       if(checkBombs[i][j] == "0"){
               this.cx = i * this.c_area;
               this.cy = j * this.c_area;
-              
+
             //console.log("cajas--> "+i,j);
       };
     };

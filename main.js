@@ -18,7 +18,7 @@ $(document).ready(function() {
   myMaps = new Maps();
   myBoards = new Boards(7, 7);
   myBoxes = new Boxes();
-  myBombs = new Bombs();
+  myBombs = [];
   newGame = new Game();
   //(array2)x,y////(canvas px)cx,cv///c_area
   myPlayers1 = new Players(3, 4, 4*89.75, 3*89.75,89.75);
@@ -84,8 +84,9 @@ document.onkeydown = function(ev) {
         break;
       case 17:
           console.log("Bombaaa!!!");
+          myBombs.push(new Bombs);
           console.log(" <--funcion x/y: "+ myPlayers1.x, myPlayers1.y);
-          myBombs.setBombs(myPlayers1.x, myPlayers1.y);
+          myBombs[0].setBombs(myPlayers1.x, myPlayers1.y);
           console.log(myBoards.mapItems);
           break;
       default:
