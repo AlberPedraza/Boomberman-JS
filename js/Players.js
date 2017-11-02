@@ -27,7 +27,7 @@ Players.prototype.moveUp = function(x, y, content) {
   myBoards.mapItems[x][y] = content;
   ///movimiento en canvas
   this.cy -= this.c_area;
-    this.updatePlayerCanvas(this.cx, this.cy);
+  newGame.update();
   //cierra control de inserccion en matriz y movimiento en canvas
   console.log("moveUp: x,y: " + x, y);
 };
@@ -36,7 +36,7 @@ Players.prototype.moveDown = function(x, y, content) {
   myBoards.mapItems[x][y] = content;
   ///movimiento en canvas
   this.cy += this.c_area;
-    this.updatePlayerCanvas(this.cx, this.cy);
+  newGame.update();
   console.log("moveDown: x,y: " + x, y);
 };
 /////////////////////////////////////////////////////////////////
@@ -45,41 +45,15 @@ Players.prototype.moveLeft = function(x, y, content) {
   myBoards.mapItems[x][y] = content;
   ///movimiento en canvas
   this.cx -= this.c_area;
-    this.updatePlayerCanvas(this.cx, this.cy);
+  newGame.update();
 };
 Players.prototype.moveRight = function(x, y, content) {
   this.y++;
   myBoards.mapItems[x][y] = content;
   ///movimiento en canvas
   this.cx += this.c_area;
-    this.updatePlayerCanvas(this.cx, this.cy);
+  newGame.update();
 };
-
-Players.prototype.updatePlayerCanvas = function(cx, cy) {
-  /*
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    myBoards.start(ctx);
-    myPlayers1.paintPlayer(ctx);
-*/
-  console.log("updatePlayerCanvas: " + cx, cy, ctx);
-  //actualizo jugador
-  //this.cx += this.vx;
-  //this.cy += this.vy;
-
-  /*
-      if (this.y + this.vy > canvas.height || this.y + this.vy < 0) {
-      this.vy *= -1;
-      }
-      if (this.x + this.vx > canvas.width || this.x + this.vx < 0) {
-      this.vx *= -1;
-      }
-  */
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  myBoards.start(ctx);
-  myPlayers1.paintPlayer(ctx);
-
-};
-
 
 Players.prototype.lifeCheck = function() {
 
@@ -95,6 +69,5 @@ Players.prototype.paintPlayer = function(ctx) {
 };
 
 Players.prototype.stopPlayer = function(ctx) {
-  myBoards.start(ctx);
-  myPlayers1.paintPlayer(ctx);
+  newGame.update();
 };

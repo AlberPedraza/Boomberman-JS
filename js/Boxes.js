@@ -13,9 +13,6 @@ function Boxes(){
 }
 
 Boxes.prototype.setBoxes = function(){
-
-};
-Boxes.prototype.giveBoxes = function(){
 var boxes = myBoards.mapItems;
 var that = this;
 var i,j;
@@ -24,7 +21,7 @@ var i,j;
       if(boxes[i][j] == "x"){
               this.cx = i * this.c_area;
               this.cy = j * this.c_area;
-              that.paintBoxes(this.cy, this.cx);
+              myBoxes.paintBoxes(this.cy, this.cx);
             //console.log("cajas--> "+i,j);
       };
     };
@@ -32,10 +29,8 @@ var i,j;
 };
 
 Boxes.prototype.paintBoxes = function(cx,cy) {
-console.log("position: "+this.x,this.y);
   ctx.beginPath();
-  //creo cajas
-  
+  //pinto cajas
   ctx.fillRect(cx, cy, this.square, this.square);
   ctx.closePath();
   ctx.fillStyle = this.color;

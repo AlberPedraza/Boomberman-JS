@@ -5,6 +5,7 @@ var myPlayers1;
 var myBoards;
 var canvas;
 var ctx;
+var newGame;
 //myMaps.insertMap(8,8);
 //console.log(myBoards.mapItems);
 
@@ -18,10 +19,9 @@ $(document).ready(function() {
   myBoards = new Boards(7, 7);
   myBoxes = new Boxes();
   myBombs = new Bombs();
-
+  newGame = new Game();
   //(array2)x,y////(canvas px)cx,cv///c_area
   myPlayers1 = new Players(3, 4, 4*89.75, 3*89.75,89.75);
-
 
   var p_con = "w";
   var p_con_cls = "-";
@@ -30,19 +30,7 @@ $(document).ready(function() {
   //añade bomba al mapa
   //myBombs.setBomb(1, 1);
 
-
-  setTimeout(function(){
-    //pinta tablero y jugador
-    myBoards.start(ctx);
-    //añade posicion del jugador al mapa
-    myPlayers1.addPlayerMap(myPlayers1.x, myPlayers1.y, p_con);
-    myPlayers1.paintPlayer(ctx,myPlayers1.x, myPlayers1.y);
-    myBoxes.giveBoxes();
-  }, 20);
-
-
-
-
+////////GAME.js
 
 //////////////////// Controles////////////////////////
 
@@ -91,24 +79,30 @@ document.onkeydown = function(ev) {
         console.log(" <--funcion y: ", myPlayers1.y);
         myPlayers1.moveRight(myPlayers1.x, myPlayers1.y, p_con);
         myPlayers1.clearPlayerPos(backPos_x, backPos_y, p_con_cls);
-        console.log("despues de la funcion", myPlayers1.y);
         console.log("funcion y -->", myPlayers1.y);
         console.log(myBoards.mapItems);
         break;
+      case 17:
+          console.log("Bombaaa!!!");
+          console.log(" <--funcion x/y: "+ myPlayers1.x, myPlayers1.y);
+          myBombs.setBombs(myPlayers1.x, myPlayers1.y);
+
+          console.log(myBoards.mapItems);
+          break;
       default:
         console.log("tecla sin movimiento");
 
-    }
+    };
 
 
 };//cierra onkeypress
     controlKey(key);
     //cada vez que hay movimiento actualiza posición a la array de Maps
     myPlayers1.addPlayerMap(myPlayers1.x, myPlayers1.y, p_con);
-    myBoxes.giveBoxes();
   };
   console.log(myBoards.mapItems);
 
+  setInterval(newGame.update,30);
 
   //  setInterval(draw, 0);
 }); //cierra Jquery
