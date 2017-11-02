@@ -10,8 +10,9 @@ Game.prototype.update = function(){
    ctx.clearRect(0, 0, canvas.width, canvas.height);
    myBoards.start(ctx);
    myBoxes.setBoxes(this.cy, this.cx);
-   myBombs.paintBombs(this.x, this.y);
    myPlayers1.paintPlayer(ctx);
+   myBombs.paintBombs(myBombs.cy,myBombs.cx);
+
 
 };
 Game.prototype.checkCollisions = function(){

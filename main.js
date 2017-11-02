@@ -86,7 +86,6 @@ document.onkeydown = function(ev) {
           console.log("Bombaaa!!!");
           console.log(" <--funcion x/y: "+ myPlayers1.x, myPlayers1.y);
           myBombs.setBombs(myPlayers1.x, myPlayers1.y);
-
           console.log(myBoards.mapItems);
           break;
       default:

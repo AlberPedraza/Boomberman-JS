@@ -1,10 +1,11 @@
 function Bombs(){
   this.x;
   this.y;
-  this.cx= 350;
-  this.cy = 350;
+  this.cx;
+  this.cy;
   this.c_area = 91.75;
   this.radius = 30;
+  this.radius_b = 20;
   this.color = 'red';
   this.range = 1;
   this.damage;
@@ -44,34 +45,46 @@ Bombs.prototype.setBombs = function(x,y){
   var that=this;
   setTimeout(function(){
     that.damageBoom(x,y,1,"o");
-              console.log("log setBoom --damage: " + myBoards.mapItems);
+        console.log("log setBoom --damage: " + myBoards.mapItems);
       setTimeout(function(){
         that.clearBomb(x,y,1,"-");
           console.log("log setBoom --clear: " + myBoards.mapItems);
+          newGame.update();
       },200);
   }, 2000);
 
-//recorre la array 2d buscando la bomba
-  var bombs = myBoards.mapItems;
-  var that = this;
-  var i,j;
-    for (i= 0; i <= 7; i++ ){
-      for (j = 0; j <= 7; j++ ){
-        if(bombs[i][j] == 0){
-                this.cx = i * this.c_area;
-                this.cy = j * this.c_area;
-                myBombs.paintBombs(this.x,this.y);
-        };
-      };
-    };
 };
 
-
-Bombs.prototype.paintBombs = function(cx,cy) {
+Bombs.prototype.paintBombs = function() {
   //console.log("position cx/cy: "+ cx, cy);
   ctx.beginPath();
   //pinto bomba
-  ctx.fillRect(cx, cy, this.square, this.square);
+  ctx.arc(this.y*this.c_area+40, this.x*this.c_area+40, this.radius, 0, Math.PI * 2, true);
+  ctx.closePath();
+  ctx.fillStyle = this.color;
+  ctx.fill();
+};
+
+Bombs.prototype.checkBombs = function(){
+var checkBombs = myBoards.mapItems;
+var that = this;
+var i,j;
+  for (i= 0; i <= 7; i++ ){
+    for (j = 0; j <= 7; j++ ){
+      if(checkBombs[i][j] == "0"){
+              this.cx = i * this.c_area;
+              this.cy = j * this.c_area;
+              
+            //console.log("cajas--> "+i,j);
+      };
+    };
+  };
+};
+Bombs.prototype.paintBurned = function(cx,cy) {
+  //console.log("position cx/cy: "+ cx, cy);
+  ctx.beginPath();
+  //pinto bomba
+ctx.arc(this.y*this.c_area+40, this.x*this.c_area+40, this.radius_b, 0, Math.PI * 2, true);
   ctx.closePath();
   ctx.fillStyle = this.color;
   ctx.fill();
