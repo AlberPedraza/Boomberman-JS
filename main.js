@@ -20,7 +20,7 @@ $(document).ready(function() {
   myBombs = new Bombs();
 
   //(array2)x,y////(canvas px)cx,cv///c_area
-  myPlayers1 = new Players(4, 4, 355, 355,89.75);
+  myPlayers1 = new Players(3, 4, 3*89.75, 355,89.75);
 
   var p_con = "w";
   var p_con_cls = "-";
@@ -30,13 +30,16 @@ $(document).ready(function() {
   //myBombs.setBomb(1, 1);
 
 
-  //añade posicion del jugador al mapa
-  myPlayers1.addPlayerMap(myPlayers1.x, myPlayers1.y, p_con);
+  setTimeout(function(){
+    //pinta tablero y jugador
+    myBoards.start(ctx);
+    //añade posicion del jugador al mapa
+    myPlayers1.addPlayerMap(myPlayers1.x, myPlayers1.y, p_con);
+    myPlayers1.paintPlayer(ctx,myPlayers1.x, myPlayers1.y);
+    myBoxes.giveBoxes();
+  }, 20);
 
-  //pinta tablero y jugador
-  myBoards.start(ctx);
-  myBoxes.giveBoxes();
-  myPlayers1.paintPlayer(ctx,myPlayers1.x, myPlayers1.y);
+
 
 
 
@@ -101,6 +104,7 @@ document.onkeydown = function(ev) {
     controlKey(key);
     //cada vez que hay movimiento actualiza posición a la array de Maps
     myPlayers1.addPlayerMap(myPlayers1.x, myPlayers1.y, p_con);
+    myBoxes.giveBoxes();
   };
   console.log(myBoards.mapItems);
 

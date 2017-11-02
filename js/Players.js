@@ -27,12 +27,7 @@ Players.prototype.moveUp = function(x, y, content) {
   myBoards.mapItems[x][y] = content;
   ///movimiento en canvas
   this.cy -= this.c_area;
-  var that = this;
-  setTimeout(function(cx, cy) {
-    console.log("esto es ctx: " + ctx);
-    console.log("setTimeout cx,cy: " + that.cx, that.cy);
-    that.updatePlayerCanvas(that.cx, that.cy);
-  }, 20);
+    this.updatePlayerCanvas(this.cx, this.cy);
   //cierra control de inserccion en matriz y movimiento en canvas
   console.log("moveUp: x,y: " + x, y);
 };
@@ -41,12 +36,7 @@ Players.prototype.moveDown = function(x, y, content) {
   myBoards.mapItems[x][y] = content;
   ///movimiento en canvas
   this.cy += this.c_area;
-  var that = this;
-  setTimeout(function(cx, cy) {
-    console.log("esto es ctx: " + ctx);
-    console.log("setTimeout cx,cy: " + that.cx, that.cy);
-    that.updatePlayerCanvas(that.cx, that.cy);
-  }, 20);
+    this.updatePlayerCanvas(this.cx, this.cy);
   console.log("moveDown: x,y: " + x, y);
 };
 /////////////////////////////////////////////////////////////////
@@ -55,24 +45,14 @@ Players.prototype.moveLeft = function(x, y, content) {
   myBoards.mapItems[x][y] = content;
   ///movimiento en canvas
   this.cx -= this.c_area;
-  var that = this;
-  setTimeout(function(cx, cy) {
-    console.log("esto es ctx: " + ctx);
-    console.log("setTimeout cx,cy: " + that.cx, that.cy);
-    that.updatePlayerCanvas(that.cx, that.cy);
-  }, 20);
+    this.updatePlayerCanvas(this.cx, this.cy);
 };
 Players.prototype.moveRight = function(x, y, content) {
   this.y++;
   myBoards.mapItems[x][y] = content;
   ///movimiento en canvas
   this.cx += this.c_area;
-  var that = this;
-  setTimeout(function(cx, cy) {
-    console.log("esto es ctx: " + ctx);
-    console.log("setTimeout cx,cy: " + that.cx, that.cy);
-    that.updatePlayerCanvas(that.cx, that.cy);
-  }, 20);
+    this.updatePlayerCanvas(this.cx, this.cy);
 };
 
 Players.prototype.updatePlayerCanvas = function(cx, cy) {

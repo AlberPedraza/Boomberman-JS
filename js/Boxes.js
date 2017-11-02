@@ -22,36 +22,10 @@ var i,j;
   for (i = 0; i <= 8; i++ ){
     for (j = 0; j <= 8; j++ ){
       if(boxes[i][j] == "x"){
-        //console.log("cajas!!!!! "+i,j);
-        //console.log("esto es i: "+i);
-
-            console.log("de 0: " + boxes[i][j]);
-            if(i == 0 || j == 0){
-              if(i == 0){
-                this.cx = 0;
-                that.paintBoxes(this.cx,this.cy);
-              }
-              if(j == 0){
-                this.cy = 0;
-                that.paintBoxes(this.cx,this.cy);
-              }
-              if(i == 0 && j == 0){
-                this.cx = 0;
-                this.cy = 0;
-                that.paintBoxes(this.cx,this.cy);
-              }
-            }
-            if(i > 0){
-              this.cx = i * this.c_area;
+              this.cx = j * this.c_area;
+              this.cy = i * this.c_area;
               that.paintBoxes(this.cx, this.cy);
-            }
-            if(j > 0){
-              this.cy = j * this.c_area;
-              that.paintBoxes(this.cx, this.cy);
-            }
-
-            console.log("cajas!!!!! "+i,j);
-
+            console.log("cajas--> "+i,j);
       };
     };
   };
