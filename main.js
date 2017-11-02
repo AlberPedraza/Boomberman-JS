@@ -20,7 +20,8 @@ $(document).ready(function() {
   myBombs = new Bombs();
 
   //(array2)x,y////(canvas px)cx,cv///c_area
-  myPlayers1 = new Players(3, 4, 3*89.75, 355,89.75);
+  myPlayers1 = new Players(3, 4, 4*89.75, 3*89.75,89.75);
+
 
   var p_con = "w";
   var p_con_cls = "-";
