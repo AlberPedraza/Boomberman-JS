@@ -9,7 +9,12 @@ function Boxes(){
   this.width;
   this.height;
   this.quantity;
+  this.imgScale = this.c_area/this.c_area;
+
   this.color = "grey";
+  this.img = new Image();
+  this.img.src = './img/box.png';
+  this.img.addEventListener('load', this.paintBoxes.bind(this));
 }
 
 Boxes.prototype.setBoxes = function(){
@@ -29,10 +34,15 @@ var i,j;
 };
 
 Boxes.prototype.paintBoxes = function(cx,cy) {
-  ctx.beginPath();
+/*
+ctx.beginPath();
   //pinto cajas
   ctx.fillRect(cx, cy, this.square, this.square);
   ctx.closePath();
   ctx.fillStyle = this.color;
   ctx.fill();
+*/
+
+    ctx.drawImage(this.img, cx, cy,80*this.imgScale,80);
+
 };

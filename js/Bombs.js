@@ -6,10 +6,19 @@ function Bombs(){
   this.c_area = 91.75;
   this.radius = 30;
   this.radius_b = 20;
+  this.c_area_b = 120.75;
   this.color = 'red';
+  this.color_b = "orange";
   this.range = 1;
   this.damage;
+  this.imgScale = this.c_area/this.c_area;
+  this.img = new Image();
+  this.img2 = new Image();
+  this.img.src = './img/bomb.png';
+  this.img2.src = './img/explosion.png';
+  this.img.addEventListener('load', this.paintBombs.bind(this));
 };
+
 //recoge posición de la bomba y rango de explosión
 Bombs.prototype.damageBoom = function(x,y,range,content){
   x = this.x;
@@ -22,7 +31,6 @@ Bombs.prototype.damageBoom = function(x,y,range,content){
     myBoards.mapItems[x - range][y] = content;
   }
   console.log("log damageBoom: "+myBoards.mapItems);
-  //this.clearBomb(x,y);
 };
 
 //limpiar bomba
@@ -32,7 +40,6 @@ Bombs.prototype.clearBomb = function(x,y,range,content){
   var that=this;
   setTimeout(function(){that.damageBoom(x,y,range,content);}, 200);
 };
-
 
 //pone bomba en posición y activa la explosión con setInterval de damageBoom
 Bombs.prototype.setBombs = function(x,y){
@@ -48,45 +55,64 @@ Bombs.prototype.setBombs = function(x,y){
     that.damageBoom(x,y,1,"o");
         console.log("log setBoom --damage: " + myBoards.mapItems);
       setTimeout(function(){
+        that.paintBurned();
         that.clearBomb(x,y,1,"-");
+        //empuja la ultima bomba
         myBombs.pop();
-          console.log("log setBoom --clear: " + myBoards.mapItems);
+
+        console.log("log setBoom --clear: " + myBoards.mapItems);
       },200);
   }, 2000);
-
 };
 
 Bombs.prototype.paintBombs = function() {
   //console.log("position cx/cy: "+ cx, cy);
+/*
   ctx.beginPath();
   //pinto bomba
   ctx.arc(this.y*this.c_area+40, this.x*this.c_area+40, this.radius, 0, Math.PI * 2, true);
   ctx.closePath();
   ctx.fillStyle = this.color;
   ctx.fill();
+*/
+
+
+
+  ctx.drawImage(this.img, this.y*this.c_area+12, this.x*this.c_area+12,80*this.imgScale,80);
+
 };
 
-Bombs.prototype.checkBombs = function(){
-var checkBombs = myBoards.mapItems;
-var that = this;
-var i,j;
-  for (i= 0; i <= 7; i++ ){
-    for (j = 0; j <= 7; j++ ){
-      if(checkBombs[i][j] == "0"){
-              this.cx = i * this.c_area;
-              this.cy = j * this.c_area;
+Bombs.prototype.paintBurned = function() {
+  //console.log("position cx/cy: "+ cx, cy);
+/*
+  ctx.beginPath();
+  //pinto ráfaga de bomba
+  //ctx.arc(this.y*this.c_area+45, this.x*this.c_area+45, this.radius_b, 0, Math.PI * 2, true);
+  ctx.arc(this.y*this.c_area+45, this.x*this.c_area+135, this.radius_b, 0, Math.PI * 2, true);
+  ctx.arc(this.y*this.c_area+45, this.x*this.c_area-20, this.radius_b, 0, Math.PI * 2, true);
 
-            //console.log("cajas--> "+i,j);
-      };
-    };
-  };
+  ctx.closePath();
+  ctx.fillStyle = this.color_b;
+  ctx.fill();
+  */
+ctx.drawImage(this.img2, this.y*this.c_area, this.x*this.c_area+97,80*this.imgScale,80);
+ctx.drawImage(this.img2, this.y*this.c_area, this.x*this.c_area-97,80*this.imgScale,80);
+
+ctx.drawImage(this.img2, this.y*this.c_area+97,this.x*this.c_area,80*this.imgScale,80);
+ctx.drawImage(this.img2, this.y*this.c_area-97,this.x*this.c_area,80*this.imgScale,80);
+
+  //this.paintBurnedLR();
 };
-Bombs.prototype.paintBurned = function(cx,cy) {
+/*
+Bombs.prototype.paintBurnedLR = function() {
   //console.log("position cx/cy: "+ cx, cy);
   ctx.beginPath();
-  //pinto bomba
-ctx.arc(this.y*this.c_area+40, this.x*this.c_area+40, this.radius_b, 0, Math.PI * 2, true);
+  //pinto ráfaga de bomba
+  //ctx.arc(this.y*this.c_area+45, this.x*this.c_area+45, this.radius_b, 0, Math.PI * 2, true);
+  ctx.arc(this.y*this.c_area-40, this.x*this.c_area+45, this.radius_b, 0, Math.PI * 2, true);
+  ctx.arc(this.y*this.c_area+135, this.x*this.c_area+45, this.radius_b, 0, Math.PI * 2, true);
   ctx.closePath();
-  ctx.fillStyle = this.color;
+  ctx.fillStyle = this.color_b;
   ctx.fill();
 };
+*/

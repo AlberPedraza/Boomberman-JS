@@ -9,6 +9,8 @@ function Players(x, y, cx, cy, c_area) {
   this.life = 0;
   this.radius = 30;
   this.color = 'black';
+  this.img = new Image();
+  this.img.src = './img/player1.png';
   //this.direction_x;
   //this.direction_y;
 };
@@ -59,6 +61,7 @@ Players.prototype.lifeCheck = function() {
 
 };
 Players.prototype.paintPlayer = function(ctx) {
+/*
   console.log("cx,cy, c_area: ", this.cx, this.cy, this.c_area);
   ctx.beginPath();
   //creo jugador
@@ -66,6 +69,10 @@ Players.prototype.paintPlayer = function(ctx) {
   ctx.closePath();
   ctx.fillStyle = this.color;
   ctx.fill();
+*/
+  ctx.drawImage(this.img, this.cx + 50, this.cy + 50,80*this.imgScale,80);
+
+
 };
 
 Players.prototype.stopPlayer = function(ctx) {

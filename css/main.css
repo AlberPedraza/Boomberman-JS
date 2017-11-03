@@ -5,7 +5,16 @@ body{
   border: 1px solid black;
 
 }
-
+header{
+  padding: 30px 0px;
+}
+canvas{
+  padding-left: 0;
+padding-right: 0;
+margin-left: auto;
+margin-right: auto;
+display: block;
+}
 .square {
   background-color: #e1ffc4;
   width: 80px;

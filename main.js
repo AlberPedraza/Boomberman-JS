@@ -21,7 +21,7 @@ $(document).ready(function() {
   myBombs = [];
   newGame = new Game();
   //(array2)x,y////(canvas px)cx,cv///c_area
-  myPlayers1 = new Players(3, 4, 4*89.75, 3*89.75,89.75);
+  myPlayers1 = new Players(0, 0, 0*89.75, 0*89.75,89.75);
 
   var p_con = "w";
   var p_con_cls = "-";
@@ -91,10 +91,7 @@ document.onkeydown = function(ev) {
           break;
       default:
         console.log("tecla sin movimiento");
-
     };
-
-
 };//cierra onkeypress
     controlKey(key);
     //cada vez que hay movimiento actualiza posición a la array de Maps

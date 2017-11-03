@@ -3,8 +3,8 @@ function Game(){
   //this.player1 = new Paddle(0,300);
   //this.player2 = new Paddle(1000,300);
   //this.ball = new Ball(500,500);
-
 };
+
 Game.prototype.update = function(){
   //this.checkCollisions();
    ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -15,8 +15,6 @@ Game.prototype.update = function(){
    for (var i = 0; i < myBombs.length; i++) {
      myBombs[i].paintBombs(myBombs[i].cy,myBombs[i].cx);
    }
-
-
 };
 Game.prototype.checkCollisions = function(){
 
