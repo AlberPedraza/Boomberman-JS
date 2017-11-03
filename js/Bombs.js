@@ -23,14 +23,32 @@ function Bombs(){
 Bombs.prototype.damageBoom = function(x,y,range,content){
   x = this.x;
   y = this.y;
+  if(myBoards.mapItems[x][y]=="w"){
+    alert("Eliminado!!!");
+  }
 //marca con ó el radio de explosión
-  for(a = 1; a <= range; a++){
+  for(a = this.range; a <= range; a++){
+
+    if(myBoards.mapItems[x][y - range]=="w"){
+      alert("Eliminado!!!");
+    }
+    if(myBoards.mapItems[x][y + range]=="w"){
+      alert("Eliminado!!!");
+    }
+    if(myBoards.mapItems[x + range][y]=="w"){
+      alert("Eliminado!!!");
+    }
+    if(myBoards.mapItems[x - range][y]=="w"){
+      alert("Eliminado!!!");
+    }
     myBoards.mapItems[x][y - range] = content;
     myBoards.mapItems[x][y + range] = content;
     myBoards.mapItems[x + range][y] = content;
     myBoards.mapItems[x - range][y] = content;
+
   }
   console.log("log damageBoom: "+myBoards.mapItems);
+
 };
 
 //limpiar bomba
@@ -40,10 +58,6 @@ Bombs.prototype.clearBomb = function(x,y,range,content){
   var that=this;
   setTimeout(function(){
     that.damageBoom(x,y,range,content);
-    if(myBoards.mapItems[x][y]=="w"){
-      alert("Estás eliminado");
-    }
-
   }, 200);
 };
 

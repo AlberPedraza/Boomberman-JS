@@ -1,6 +1,6 @@
 function Game(){
   //this.board = new board(0,300);
-  //this.player1 = new Paddle(0,300);
+  //this.player1 = new Players(0,300);
   //this.player2 = new Paddle(1000,300);
   //this.ball = new Ball(500,500);
 };
