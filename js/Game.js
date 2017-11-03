@@ -11,6 +11,7 @@ Game.prototype.update = function(){
    myBoards.start(ctx);
    myBoxes.setBoxes(this.cy, this.cx);
    myPlayers1.paintPlayer(ctx);
+   myPlayers2.paintPlayer(ctx);
    //añade array de bombas
    for (var i = 0; i < myBombs.length; i++) {
      myBombs[i].paintBombs(myBombs[i].cy,myBombs[i].cx);
