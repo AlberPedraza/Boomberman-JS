@@ -11,6 +11,7 @@ function Players(x, y, cx, cy, c_area) {
   this.color = 'black';
   this.img = new Image();
   this.img.src = './img/player1.png';
+  this.imgScale = this.c_area/this.c_area;
   //this.direction_x;
   //this.direction_y;
 };
@@ -70,8 +71,10 @@ Players.prototype.paintPlayer = function(ctx) {
   ctx.fillStyle = this.color;
   ctx.fill();
 */
-  ctx.drawImage(this.img, this.cx + 50, this.cy + 50,80*this.imgScale,80);
+  ctx.drawImage(this.img, this.cx, this.cy,100*this.imgScale,100);
+};
 
+Players.prototype.dead = function(){
 
 };
 

@@ -38,7 +38,13 @@ Bombs.prototype.clearBomb = function(x,y,range,content){
   //marca con cero la posicion de la bomba
   myBoards.mapItems[x][y] = content;
   var that=this;
-  setTimeout(function(){that.damageBoom(x,y,range,content);}, 200);
+  setTimeout(function(){
+    that.damageBoom(x,y,range,content);
+    if(myBoards.mapItems[x][y]=="w"){
+      alert("Estás eliminado");
+    }
+
+  }, 200);
 };
 
 //pone bomba en posición y activa la explosión con setInterval de damageBoom
