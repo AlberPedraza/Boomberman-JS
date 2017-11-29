@@ -8,6 +8,7 @@ Funcionalidades:
 - Poner bomba y daño de ráfaga.
 - cajas destruibles en el mapa con la explosión de la bomba.
 
+__
 En desarrollo:
 - movimientos fluidos con Canvas
 - Colisiones del jugador entre bordes del mapa y cajas.
