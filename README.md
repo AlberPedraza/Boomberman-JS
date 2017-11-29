@@ -1,4 +1,4 @@
-# Boomberman
+# Boomberman JS
 
 Desarrollo del mítico juego de Boomberman, realizado en 4 días en Javascrpit.
 
