@@ -1,6 +1,6 @@
 # Boomberman JS
 
-Desarrollo del mítico juego de Boomberman, realizado en 4 días en Javascrpit ES5.
+Desarrollo del mítico juego de Boomberman, realizado en 4 días en Javascrpit ES5, en el bootcamp de desarrollo fullstack Javascrpit de Ironhack 2017.
 
 Funcionalidades:
 - Creado mapa de juego.
