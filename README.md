@@ -17,10 +17,15 @@
 
 ### Funcionalidad que queda pendiente:
 - movimientos fluidos con Canvas
-- Colisiones del jugador entre bordes del mapa y cajas.
+- Colisiones del jugador entre bordes del mapa, cajas y jugador.
 - Daño de bombas 2º player.
 - Control de numero de bombas puestas por jugador.
 - entre otros
+
+## Controles
+Player 1 --> Teclas de cursores, Bomba (Mayúscula derecha)
+Player 2 --> teclas w, s, a, d (arriba, abajo, izquerda, derecha), espacio (bomba)
+
 
 
 Deploy del resultado --> https://alberpedraza.github.io/Boomberman-JS/
