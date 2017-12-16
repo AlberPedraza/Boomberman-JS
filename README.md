@@ -23,8 +23,8 @@
 - entre otros
 
 ## Controles
-Player 1 --> Teclas de cursores, Bomba (Mayúscula derecha)
-Player 2 --> teclas w, s, a, d (arriba, abajo, izquerda, derecha), espacio (bomba)
+- Player 1 --> Teclas de cursores, Bomba (Mayúscula derecha)
+- Player 2 --> teclas w, s, a, d (arriba, abajo, izquerda, derecha), espacio (bomba)
 
 
 
